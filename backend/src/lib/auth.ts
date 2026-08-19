@@ -1,7 +1,7 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { prisma } from "./prisma";
 import nodemailer from "nodemailer";
+import { prisma } from "./prisma";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -22,7 +22,7 @@ export const auth = betterAuth({
     additionalFields: {
       role: {
         type: "string",
-        defaultValue: "user",
+        defaultValue: "USER",
         required: false,
       },
       phone: {
@@ -188,6 +188,14 @@ export const auth = betterAuth({
         console.error(err);
         throw err;
       }
+    },
+  },
+  socialProviders: {
+    google: {
+      prompt: "select_account consent",
+      accessType: "offline",
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
 });

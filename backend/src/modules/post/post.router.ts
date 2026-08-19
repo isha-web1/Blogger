@@ -1,13 +1,17 @@
 import express from "express";
+import auth, { UserRole } from "../../middlewares/auth";
+import { postController } from "./post.controller";
 
 
 
 const router = express.Router();
 
 
-router.post("/", (req, res) => {
-    res.send("Create a new post");
-});
+router.post(
+    "/",
+    auth(UserRole.USER),
+    postController.createPost
+)
 
 
 
