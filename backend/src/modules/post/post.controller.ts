@@ -75,6 +75,10 @@ const getPostById = async (req: Request<{ postId: string }>, res: Response) => {
 }
 
 
+
+
+
+
 export const postController = {
     createPost,
     getAllPost,
