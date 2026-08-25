@@ -18,6 +18,13 @@ router.get(
 
 
 router.get(
+    "/stats",
+    auth(UserRole.ADMIN),
+    postController.getStats
+)
+
+
+router.get(
     "/:postId",
     postController.getPostById
 )
