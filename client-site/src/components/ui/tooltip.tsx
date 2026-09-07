@@ -4,13 +4,13 @@ import { cn } from "@/lib/utils";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 function TooltipProvider({
-  delay = 0,
+  delayDuration = 0,
   ...props
 }: React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>) {
   return (
     <TooltipPrimitive.Provider
       data-slot="tooltip-provider"
-      delay={delay}
+      delayDuration={delayDuration}
       {...props}
     />
   );

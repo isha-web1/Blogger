@@ -1,8 +1,8 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { ThemeProvider } from "@/provider/ThemeProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { ThemeProvider } from "@/provider/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,11 +21,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en"
-     suppressHydrationWarning  
+    <html
+      lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-       <body
+      <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
@@ -34,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar/>
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
