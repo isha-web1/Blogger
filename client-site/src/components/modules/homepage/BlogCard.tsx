@@ -12,8 +12,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { BlogPost } from "@/types";
 
-
-
 export default function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Card className="h-full overflow-hidden border-none shadow-md transition-all duration-300 pb-2">
